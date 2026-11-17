@@ -1,0 +1,6 @@
+# Datos del servidor (mensajes y usuarios con contraseñas cifradas)
+cache/
+*.db
+
+# Diff generado localmente
+cambios-codigo.diff

@@ -1,0 +1,21 @@
+# Configuración del servidor ntfy — Oficialía Mayor
+# Cada opción aquí cambia un valor por defecto de ntfy (ver CAMBIOS.md, sección 2).
+
+# Dirección con la que los clientes llegan al servidor en la red local.
+# La actualiza scripts/actualizar-ip.ps1.
+base-url: "http://192.168.0.10:8080"
+
+# Puerto dentro del contenedor; hacia fuera se publica en 8080 (docker-compose.yml).
+listen-http: ":80"
+
+# Guarda los mensajes en disco para que no se pierdan al reiniciar.
+cache-file: "/var/cache/ntfy/cache.db"
+
+# Activa usuarios y contraseñas.
+auth-file: "/var/cache/ntfy/user.db"
+
+# Sin usuario no se puede leer ni publicar nada.
+auth-default-access: "deny-all"
+
+# Solo si se usa iPhone (las notificaciones en segundo plano pasan por ntfy.sh):
+# upstream-base-url: "https://ntfy.sh"

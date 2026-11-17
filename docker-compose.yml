@@ -1,0 +1,13 @@
+services:
+  ntfy:
+    image: ntfy-oficialia:2.37.2      # imagen compilada desde el código (scripts/compilar.ps1)
+    container_name: ntfy
+    command: serve
+    environment:
+      - TZ=America/Mexico_City        # horas locales en mensajes y logs
+    volumes:
+      - ./etc:/etc/ntfy               # configuración editable sin recompilar
+      - ./cache:/var/cache/ntfy       # mensajes y usuarios persistentes
+    ports:
+      - "8080:80"                     # 8080 en la PC -> 80 en el contenedor
+    restart: unless-stopped           # se levanta solo al iniciar Docker
